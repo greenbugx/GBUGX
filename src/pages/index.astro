@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import TokenomicsChart from "../components/TokenomicsChart.jsx"
 ---
 
 <Layout>
@@ -53,6 +54,25 @@ import Layout from "../layouts/Layout.astro"
 	</div>
 	</div>
 
+	<!-- Ticker Headbar -->
+	<div class="w-full bg-black border-b border-green-700 overflow-hidden relative h-10 z-50">
+	<div class="absolute whitespace-nowrap animate-marquee flex items-center gap-4 text-green-400 font-bold text-sm px-4">
+		<img src="/logo-removebg-preview.png" alt="GBUGX Logo" class="h-6 w-6" />
+		<span>GBUGX • GreenBugX • The Meme Coin for Hackers • Buy Now • Join the Community • HACK THE SYSTEM</span>
+	</div>
+	</div>
+
+	<style>
+		@keyframes marquee {
+			0% { transform: translateX(100%); }
+			100% { transform: translateX(-100%); }
+		}
+		.animate-marquee {
+			animation: marquee 20s linear infinite;
+		}
+	</style>
+
+
 	<main class="relative z-10 bg-gradient-to-b from-black via-green-900/10 to-black">
 		<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
 			<div class="cyberpunk-bg"></div>
@@ -77,7 +97,7 @@ import Layout from "../layouts/Layout.astro"
 		</section>
 
 		<!-- Utility Section -->
-		<section data-aos="fade-up" class="bg-green-950/10 py-20 px-6 text-center">
+		<section data-aos="fade-up" class="py-20 px-6 text-center">
 		<h2 class="text-3xl font-semibold mb-8">Why GBUGX?</h2>
 		<div class="space-y-6 max-w-3xl mx-auto text-green-300">
 			<p>🧠 Built for minds who think differently — hackers, crypto anarchists, and tech misfits.</p>
@@ -97,27 +117,15 @@ import Layout from "../layouts/Layout.astro"
 		</div>
 		</section>
 
+		
 		<!-- Tokenomics Section -->
-		<section data-aos="fade-up" class="bg-green-950/10 py-20 px-6 text-center">
+		<section data-aos="fade-up" class="py-20 px-6 text-center">
 		<h2 class="text-3xl font-semibold mb-8">Tokenomics</h2>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-			<div data-aos="zoom-in" class="bg-black p-6 rounded-xl shadow-lg border border-green-700">
-			<h3 class="text-xl font-bold">Total Supply</h3>
-			<p class="text-green-200 mt-2">1,000,000,000 GBX</p>
-			<p class="text-green-400 mt-2 text-sm">No burns. No reprints. Supply is sacred.</p>
-			</div>
-			<div data-aos="zoom-in" class="bg-black p-6 rounded-xl shadow-lg border border-green-700">
-			<h3 class="text-xl font-bold">Liquidity</h3>
-			<p class="text-green-200 mt-2">60%</p>
-			<p class="text-green-400 mt-2 text-sm">Locked LP on launch. No rug, no BS.</p>
-			</div>
-			<div data-aos="zoom-in" class="bg-black p-6 rounded-xl shadow-lg border border-green-700">
-			<h3 class="text-xl font-bold">Community Airdrops</h3>
-			<p class="text-green-200 mt-2">10%</p>
-			<p class="text-green-400 mt-2 text-sm">Rewarding loyal GBUGX believers.</p>
-			</div>
+		<div class="flex flex-col md:flex-row justify-center items-center gap-12">
+			<TokenomicsChart client:load />
 		</div>
 		</section>
+
 
 		<!-- How to Buy Section -->
 		<section data-aos="fade-up" class="py-20 px-6 max-w-4xl mx-auto text-center">
